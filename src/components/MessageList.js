@@ -1,33 +1,21 @@
-import React, { PureComponent } from "react";
-import MessageItem from "./MessageItem";
+import React from 'react';
+import MessageItem from './MessageItem';
+import { connect } from 'react-redux';
 
-class MessageList extends PureComponent {
-    
-    state = {
-        messages: [
-            { message_send: "a", pseudo: "toto" },
-            { message_send: "b", pseudo: "tata" },
-            { message_send: "c", pseudo: "titi" }
-        ] 
-    };
-    
-    handleOnclick(){    
-        
-    }
-    
-    render() {
-        return (
-            <ul>
-            {this.state.messages.map((message) => {
-                return (
-                    <MessageItem handleOnClick={this.handleOnClick} message={message}
-                    />
-                    );
-                })}
-                </ul>
-                );
-            }
-        }
-        
-        export default MessageList;
-        
+const MessageList = ({ messages }) => {
+  return (
+    <ul>
+      {messages.map((message, key) => {
+        return <MessageItem key={key} index={key} message={message} />;
+      })}
+    </ul>
+  );
+};
+
+const mapStateToProps = state => {
+  return {
+    messages: state.message.messages,
+  };
+};
+
+export default connect(mapStateToProps)(MessageList);
