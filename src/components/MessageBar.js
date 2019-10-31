@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addMessage } from './../actions/messages';
+import { Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
+import { FormControl } from 'react-bootstrap';
+
 
 class MessageBar extends Component {
   constructor(props) {
@@ -28,11 +32,12 @@ class MessageBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input value={this.state.message} onChange={this.handleChange} placeholder="Votre message" type="text"/>
+      <Form onSubmit={this.handleSubmit}>
+        <FormControl value={this.state.message} onChange={this.handleChange} placeholder="Votre message" type="text"/>
         <br />
-        <button type="submit">Envoyer</button>
-      </form>
+        <Button variant="primary" type="submit">Envoyer</Button>
+
+      </Form>
     );
   }
 }

@@ -2,9 +2,16 @@ import React from 'react';
 
 function MessageItem({message}){
   return (
-    <li>
-      <h3>{message.username}</h3>
-      <h4>{message.message}</h4>
+    
+    <li
+      style={{
+        marginBottom: 10,
+        backgroundColor: 'black',
+        padding: 10,
+      }}
+    >
+      <small>{message.username}</small>
+      <div>{message.message}</div>
     </li>
   );
 }

@@ -3,10 +3,16 @@ import MessageList from "./MessageList";
 import MessageBar from "./MessageBar";
 
 
-function Chat(){
-    return (
-    <div>
-      <div> TChat</div>
+const chat_interface = {
+  borderRadius: 10,
+  width: 800,
+  backgroundColor: 'gray',
+  padding: 60,
+};
+
+const Chat = () => {
+  return (
+    <div style={chat_interface}>
       <MessageList />
       <MessageBar />
     </div>
